@@ -1,0 +1,23 @@
+{
+  "dataset": {
+    "dataset_name": "test_rn_OSM_full_jingyuxian",
+    "min_lat": 42.11059570312500,
+    "min_lng": 126.51306152343750,
+    "max_lat": 42.84667968750000,
+    "max_lng": 127.27111816406250, 
+    "nb_rows": 17152,
+    "nb_cols": 17664
+  },
+  "feature_extraction": {
+    "tile_pixel_size": 1,
+    "test_tile_row_min": 0,
+    "test_tile_row_max": 17152,
+    "test_tile_col_min": 0,
+    "test_tile_col_max": 17664
+  },
+  "topology_construction": {
+    "link_radius": 5,
+    "alpha": 1.4,
+    "min_supp": 5
+  }
+}
