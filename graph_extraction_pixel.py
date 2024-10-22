@@ -229,7 +229,7 @@ class GraphExtractor:
         # node pixel -> road node
         if not os.path.exists('results_pixel_bone_pred/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord'):
             os.makedirs('results_pixel_bone_pred/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord')
-        # if os.path.exists('results_pixel_bone_pred/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord/coord_list.txt'):
+        if os.path.exists('results_pixel_bone_pred/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord/coord_list.txt'):
             # return 0
             os.remove('results_pixel_bone_pred/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord/coord_list.txt')
         def write_coords_line_to_txt(coords,district,year):
