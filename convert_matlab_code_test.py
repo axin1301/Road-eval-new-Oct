@@ -50,8 +50,8 @@ def convert_matlab_code(district,year):
     code_list = [district]
     for code in code_list:
         print(code)
-        input_picture_path = '../temp_output/'+district+'_GT_primary_'+str(year)+'.png'  #'../picture/'+code+'-17.png'  # replace with your input path
-        output_picture_path = '../temp_output/'+district+'_GT_primary_'+str(year)+'-17-bone.png' #code+'-17-bone.png'  # replace with your output path
+        input_picture_path = '../temp_output_test/'+district+'_GT_primary_'+str(year)+'.png'  #'../picture/'+code+'-17.png'  # replace with your input path
+        output_picture_path = '../temp_output_test/'+district+'_GT_primary_'+str(year)+'-17-bone.png' #code+'-17-bone.png'  # replace with your output path
 
         if os.path.exists(output_picture_path):
             continue

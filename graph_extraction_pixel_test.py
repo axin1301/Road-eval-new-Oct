@@ -227,14 +227,13 @@ class GraphExtractor:
 
     def construct_undirected_rn(self, nodes, segments, target_path, nb_rows, xscale, yscale, mbr,district,year):
         # node pixel -> road node
-        if not os.path.exists('results_pixel_bone_pred/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord'):
-            os.makedirs('results_pixel_bone_pred/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord')
-        # if os.path.exists('results_pixel_bone_pred/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord/coord_list.txt'):
-            # return 0
-            os.remove('results_pixel_bone_pred/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord/coord_list.txt')
+        if not os.path.exists('results_pixel_bone_pred_test/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord'):
+            os.makedirs('results_pixel_bone_pred_test/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord')
+        if os.path.exists('results_pixel_bone_pred_test/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord/coord_list.txt'):
+            os.remove('results_pixel_bone_pred_test/results_pixel_bone_pred_'+self.district+'_'+str(self.year)+'_coord/coord_list.txt')
         def write_coords_line_to_txt(coords,district,year):
             # output_file_path = 'results_pixel_bone_pred_lingqiuxian_2021/coord_list_bone2.txt'
-            output_file_path = 'results_pixel_bone_pred/results_pixel_bone_pred_'+district+'_'+str(year)+'_coord/coord_list.txt'
+            output_file_path = 'results_pixel_bone_pred_test/results_pixel_bone_pred_'+district+'_'+str(year)+'_coord/coord_list.txt'
             with open(output_file_path, 'a') as file:
                 line = ' '.join(f"{point.lng} {point.lat}" for point in coords) #coords
                 file.write(f"{line}\n")

@@ -11,7 +11,7 @@ from tptk.common.mbr import MBR
 from tptk.common.grid import Grid
 from tptk.common.road_network import load_rn_shp
 # from topology_construction.
-from graph_extraction_pixel import GraphExtractor
+from graph_extraction_pixel_test import GraphExtractor
 from topology_construction.link_generation import LinkGenerator
 from topology_construction.custom_map_matching import CustomMapMatching
 from topology_construction.map_refinement import MapRefiner
@@ -79,21 +79,20 @@ def main_pixel(district,year):
     for year in year_list:#[2021]:
         for district in district_list:# ['jingyuxian']:#['lingqiuxian']:#['xixiangxian','shufuxian','guanghexian','danfengxian','jiangzixian','honghexian','liboxian','linquanxian',,'lingqiuxian']:
             print(year, district)
-
-            if os.path.exists('results_pixel_bone_pred/results_pixel_bone_pred_'+district+'_'+str(year)+'_coord/coord_list_simplified_edge.txt'):
+            if os.path.exists('results_pixel_bone_pred_test/results_pixel_bone_pred_'+district+'_'+str(year)+'_coord/coord_list_simplified_edge.txt'):
                 break
             conf_path = 'test_rn_OSM_full_jingyuxian18.json' ##占位而已，不产生影响
             # results_path = '../data/tdrive_sample_thresh500/results_pred_'+district+'_'+str(year) + '/'
             # results_path = '../data/tdrive_sample_thresh500_improve/results_pred_'+district+'_'+str(year) + '/'
             # results_path = '../../../RoadNetworkValidation_new/RoadNetwork_Validation4OSMGT/data/tdrive_sample_improve2/results_pred_'+district+'_'+str(year) + '/'
             # results_path = './results_pixel_bone_pred_'+district+'_GE_'+str(year) + '/'#'_full_image/'
-            results_path = './results_pixel_bone_pred/results_pixel_bone_pred_'+district+'_GE_'+str(year) + '/'#'_full_image/'
+            results_path = './results_pixel_bone_pred_test/results_pixel_bone_pred_'+district+'_GE_'+str(year) + '/'#'_full_image/'
 
             # conf_path = '../data/test_rn_pred_full_'+district+'.json' #'../../../RoadNetworkValidation_new/RoadNetworkValidation/DeepMG-master/data/test_rn_pred_full_'+district+'.json'
             # results_path = '../data/tdrive_sample/results_pred_'+district+'_'+str(year) + '/' #+'_dist5_'
 
             # print(opt)
-            if not os.path.exists('../temp_output/'+district+'_GT_primary_'+str(year)+'-17-bone.png'):#district+'-17-bone.png'):
+            if not os.path.exists('../temp_output_test/'+district+'_GT_primary_'+str(year)+'-17-bone.png'):#district+'-17-bone.png'):
                 continue
             # radius = 200
             with open(conf_path, 'r') as f:
@@ -122,7 +121,7 @@ def main_pixel(district,year):
                 # skeleton = Image.open('lingqiuxian-17-bone.png')
                 # skeleton = Image.open('refined_pred_GE_jyx_2019_2_100_update.png')
                 # skeleton = Image.open('pred_skeleton_靖宇县_2021_2_improve.png')
-                skeleton = Image.open('../temp_output/'+district+'_GT_primary_'+str(year)+'-17-bone.png')#district+'-17-bone.png')
+                skeleton = Image.open('../temp_output_test/'+district+'_GT_primary_'+str(year)+'-17-bone.png')#district+'-17-bone.png')
                 # skeleton = Image.open('jingyuxian_zl17_new_div_10.png') #除以10的偏移很大
                 # skeleton = Image.open('lingqiuxian_zl17_new_full_image.png') #这里无用
                 # skeleton = Image.open('jingyuxian_zl17_new_full_image.png')

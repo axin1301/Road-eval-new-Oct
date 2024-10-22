@@ -55,16 +55,16 @@ def transform_coord_grid(district,year):
     district_list = [district]
     # district_list_reverse = district_list[::-1]
 
-    if not os.path.exists('results_pixel_coored_final_wgs/'):
-        os.makedirs('results_pixel_coored_final_wgs/')
+    if not os.path.exists('results_pixel_coored_final_wgs_test/'):
+        os.makedirs('results_pixel_coored_final_wgs_test/')
     for district in district_list:#_reverse:
         for year in year_list:
-            if os.path.exists('results_pixel_coored_final_wgs/'+district+'_'+str(year)+'-GE-18-final-wgs.json'):
+            if os.path.exists('results_pixel_coored_final_wgs_test/'+district+'_'+str(year)+'-GE-18-final-wgs.json'):
                 break
 
             # filename = '../../../GE_image_zip_'+str(year)+'/'+district+'/'+str(year)+'/'+district+'_list1.txt'
 
-            file_C = 'results_pixel_bone_pred/results_pixel_bone_pred_'+district+'_'+str(year)+'_coord/coord_list_simplified.txt'
+            file_C = 'results_pixel_bone_pred_test/results_pixel_bone_pred_'+district+'_'+str(year)+'_coord/coord_list_simplified.txt'
             # if os.path.exists('results_pixel_coored_final_wgs/'+district+'_'+str(year)+'-GE-18-final-wgs.json'):
             #     continue
             if not os.path.exists(file_C):
@@ -75,7 +75,7 @@ def transform_coord_grid(district,year):
             coordinates = []
             bar = tqdm(range(len(data_C)))
             
-            csv_file_path = '../data/tilefile_zl16_20_plus_20/'+ district+'.csv'#################################
+            csv_file_path = '../data_test/tilefile_zl16_20_plus_20/'+ district+'.csv'#################################
             # csv_file_path = '../../../GE_image_zip_2020/image_list_file/'+district+'_invalid_tile_'+str(year)+'.csv'  # 请将此路径替换为你的CSV文件路径
             df = pd.read_csv(csv_file_path)
             min_x = df['x_tile'].min()
@@ -90,7 +90,7 @@ def transform_coord_grid(district,year):
             # print(min_x, max_y)  ###124,133
 
             # skeleton = Image.open('../../test_run/skeleton_file_final_d300/pred_skeleton_'+district+'_'+str(year)+'_2_improve.png')
-            skeleton = Image.open('../temp_output/'+district+'_GT_primary_'+str(year)+'-17-bone.png')
+            skeleton = Image.open('../temp_output_test/'+district+'_GT_primary_'+str(year)+'-17-bone.png')
             
             skeleton = np.array(skeleton)
 
@@ -160,7 +160,7 @@ def transform_coord_grid(district,year):
             print(formatted_coordinates)
 
             # 将结果写入JSON文件
-            output_file = 'results_pixel_coored_final_wgs/'+district+'_'+str(year)+'-GE-18-final-wgs.json'
+            output_file = 'results_pixel_coored_final_wgs_test/'+district+'_'+str(year)+'-GE-18-final-wgs.json'
             with open(output_file, 'w') as file:
                 json.dump(formatted_coordinates, file, indent=4)
             # print(cnt)
